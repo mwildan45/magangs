@@ -1,0 +1,327 @@
+.btn-custom{
+	background-color: transparent;
+	border: none;
+	color: white;
+	outline: none; 
+}
+.p-custom{
+	color: #c50404;
+    font-size: 15px;
+    font-weight: bold;
+}
+.form-group control-label{
+	color: #000;
+}
+.cusimg{
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+}
+.resection{
+	padding: 30px 0 !important
+}
+.wtitle-custom{
+	margin-top: -25px;
+	font-family: Varela Round, sans-serif;
+    font-weight: bold;
+    color: #209e57;
+}
+.custom-img{
+	width: 70px;
+	height: 70px;
+	border-radius: 10px;
+	margin-top: 7px;
+	margin-right: 15px;
+	float: left;
+}
+.span-custom{
+	margin:2px;
+}
+.cs-button{
+	border:none;
+	background: none;
+}
+.cusimg-bookmark{
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+.cus-pl{
+	float: left;
+}
+.cus-nf{
+	width: 70px !important;
+   	height: 70px;
+    margin: 10px;
+}
+.pcus-pengajuan{
+	margin-top: 5px !important;
+}
+.p-info{
+	margin: -50px 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #cc0000;
+}
+.p-info-2{
+	margin: 35px 10px;
+}
+.detail-img{
+	width: 95px;
+	height: 100px;
+	border-radius: 10px;
+}
+.detail-dudi-btn{
+	max-width: 100%;
+    font-size: 12px;
+    white-space: normal;
+    /*padding: 4px 17px;*/
+    text-transform: capitalize;
+    border-radius: 30px;
+    margin: 5px;
+}
+.pcus-pengajuandudi{
+	margin: -10px 0 5px -19px;
+}
+.img-pjuandudi{
+	width: 64px !important;
+    height: 64px;
+    margin-left: -11px;
+    margin-right: 35px !important;
+}
+.h4-pjuandudi{
+	margin-left: -21px;
+}
+.foto-dudi{
+	max-width: 400px;
+    width: 330px;
+    height: 200px;
+    margin: 5px;
+    border-radius: 10px;
+    border: 2px solid #000;
+    display: -webkit-inline-box;
+}
+.h4-dudi{
+    color: black;
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 15px !important;
+    font-size: 27px !important;
+    font-weight: bold !important;
+}
+.desc p{
+	color: #576366;
+	font-size: 14px;
+	line-height: 1.75;
+	font-family: "Varela Round","Montserrat","Quicksand",sans-serif;
+}
+.desc h3{
+	font-size: 20px;
+}
+.desc ul li{
+	list-style: unset;
+	margin-left: 25px;
+}
+.btn-cus-showdudi{
+	margin-right: 5px;
+    text-transform: none;
+    letter-spacing: normal;
+    border-radius: 10px;
+    background: gray;
+}
+.btn-common-add{
+	border-radius: 30px;
+    text-align: center;
+}
+.span-cus-jur{
+	font-size: 13px;
+	font-weight: bold;
+	color: #576366;
+	display: block;
+    margin: 3px;
+    margin-left: 25px;
+    line-height: 1.9em;
+}
+.h3-widget{
+	font-size: 18px !important;
+	font-weight: bold !important;
+	color: #26ae61 !important;
+}
+.widghet-custom{
+	border: 2px solid #cacaca;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 14px rgba(191,191,191,.24);
+}/*
+.widghet-custom h3{
+	font-weight: bold !important;
+}*/
+.app-siswa-add{
+	/*padding: 5px 15px;*/
+    display: inline-block;
+    width: 100%;
+}
+.app-siswa-add p{
+	background: #f2f7fb;
+	padding: 7px;
+	border-radius: 5px;
+}
+input:out-of-range + .help-text::before {
+    content: 'Out of range';
+}
+.according-a{
+	font-size: 25px !important;
+	text-align: center;
+	padding: 10px !important;
+}
+.dudi{
+	font-weight: bold;
+	font-size: 14px;
+	height: 105px;
+	margin-bottom: 15px;
+	border-bottom: 2px solid #e8ecec;
+}
+.dudi .detail-img{
+	float: left;
+	width: 85px;
+	height: 85px;
+	border: 2px solid #ccc;
+	padding: 5px;
+}
+.nama-dudi{
+	font-size: 20px;
+	line-height: 50px;
+}
+.dudi .info-dudi{
+	margin-left: 100px
+}
+.dudi .info-dudi span{
+	margin-right: 15px;
+}
+.info-sht{
+	border: 1px solid #e8ecec;
+    padding: 7px;
+    border-radius: 5px;
+}
+.help-block{
+	margin: 5px;
+    background: #ff0101ad;
+    padding: 5px 15px;
+    color: white;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+.aniton{
+	-webkit-transition-duration: 0.4s; /* Safari */
+  	transition-duration: 0.4s;
+}
+.aniton:hover{
+	background: #eff9e9;;
+    color: #26ae61 !important;
+    border-radius: 4px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.right-dudi{
+	float: right;
+}
+.about-content .p-style{
+	margin-top: 15px;
+	padding: 5px;
+	border-top: 2px solid;
+    padding-top: 10px;
+}
+.about-content .info-dudi{
+    padding-bottom: 0;
+}
+/*.about-content .info-dudi span{
+	margin: 0 15px 0 0;
+	font-weight: bold;
+	padding: 3px;
+}*/
+.about-content .info-dudi span i{
+	color: #26ae61;
+}
+.img-detail-dudi{
+	width: 100%;
+    height: 300px;
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 5px;
+}
+.about-content .detail-img{
+	float: left;
+	width: 85px;
+	height: 85px;
+	border: 2px solid #ccc;
+	padding: 5px;
+}
+.about-content .p-title{
+	color: red; font-size: 25px;font-weight: bold;margin-bottom: 7px;padding: 3px;
+	margin-left: 97px;
+}
+.sweetp{
+	color: red;
+	font-weight: bold;
+	font-size: 1.125em;
+	display: contents !important;
+}
+.add-more{
+	border: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    width: 100% !important;
+}
+.add-button{
+	float: right;
+    padding: 10px;
+    font-size: 25px;
+}
+.remove-botton{
+	float: right;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.btn-default.btn-on.active{background-color: #5BB75B;color: white;}
+.btn-default.btn-off.active{background-color: #DA4F49;color: white;}
+
+.btn-default.btn-on-1.active{background-color: #006FFC;color: white;}
+.btn-default.btn-off-1.active{background-color: #DA4F49;color: white;}
+
+.btn-default.btn-on-2.active{background-color: #00D590;color: white;}
+.btn-default.btn-off-2.active{background-color: #A7A7A7;color: white;}
+
+.btn-default.btn-on-3.active{color: #5BB75B;font-weight:bolder;}
+.btn-default.btn-off-3.active{color: #DA4F49;font-weight:bolder;}
+
+.btn-default.btn-on-4.active{background-color: #006FFC;color: #5BB75B;}
+.btn-default.btn-off-4.active{background-color: #DA4F49;color: #DA4F49;}
+
+@media screen and (max-width: 1025px){
+	.cusimg{
+		width: 50px;
+		height: 50px;
+	}
+	.detail-img{
+		width: 50px;
+		height: 50px;
+	}
+	
+}
+
+@media screen and (max-width: 526px){
+	.h4-pjuandudi{
+		margin-top: 10px;
+		margin-left: 0px;
+	}
+	.pcus-pengajuandudi{
+		margin-left: 0px;
+	}
+	.dudi .info-dudi span{
+		display: inline-block;
+	}
+	.nama-dudi{
+		line-height: normal;
+	}
+}

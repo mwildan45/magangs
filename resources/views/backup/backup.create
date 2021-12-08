@@ -1,0 +1,371 @@
+@extends('layouts.layout')
+
+@section('theme')
+
+			<!-- start banner Area -->
+			<section class="banner-area relative" id="home">	
+				<div class="overlay overlay-bg"></div>
+				<div class="container">
+					<div class="row d-flex align-items-center justify-content-center">
+						<div class="about-content col-lg-12">
+							<h1 class="text-white">
+								Pricing Plan				
+							</h1>	
+							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="price.html"> Pricing Plan</a></p>
+						</div>											
+					</div>
+				</div>
+			</section>
+			<!-- End banner Area -->	
+				
+			<!-- Start price Area -->
+			@if(Auth::user()->level === 'siswa')
+			<section class="price-area section-gap" id="price">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Isi Data Diri Anda</h1>
+								<p>isi secara lengkap dan mulailah mencari tempat prakerind sesuai keinginan!</p>
+							</div>
+						</div>
+					</div>			
+					<form method="POST" action="{{ route('data.store') }}" enctype="multipart/form-data" class="form-horizontal">
+					{{ csrf_field() }}	
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="single-price no-padding">
+								<ul class="lists">
+									<div class="form-group{{ $errors->has('nis') ? ' has-error' : '' }}">
+									<li><h5>NIS</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
+										<input type="text" name="nis" class="single-input" placeholder="NIS Siswa" onfocus="this.placeholder = ''" onblur="this.placeholderl = 'NIS Siswa'" required>
+											@if($errors->has('nis'))
+												<span class="help-block">
+													<strong>{{ $errors->first('nis') }}</strong>
+												</span>
+											@endif
+										</div>
+									</li>
+									</div>
+									<li><h5>Nama Lengkap</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+										<input type="text" name="nama_lengkap" class="single-input" placeholder="Nama Lengkap Siswa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Lengkap Siswa'" required>
+									</div>
+									</li>
+									<li><h5>Alamat</h5>
+										<div class="input-group-icon mt-10">
+											<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><textarea name="alamat" class="single-input" placeholder="Alamat Siswa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Alamat Siswa'" required></textarea>
+										</div>
+									</li>
+									<li><h5>Tanggal Lahir</h5><div class="input-group-icon mt-10">
+											<div class="icon"><i class="fa fa-calendar" aria-hidden="true"></i></div><input type="date" name="tgl_lahir" class="single-input">
+									</div>
+									</li>
+									<li><h5>Jenis Kelamin</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-transgender" aria-hidden="true"></i></div>
+										<div class="form-select" id="default-select"">
+											<select name="jk">
+												<option value="L">Laki-laki</option>
+												<option value="P">Perempuan</option>
+											</select>
+										</div>
+									</div>
+									</li>
+									<li><h5>Jurusan</h5>	
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+										<div class="form-select" id="default-select"">
+											<select name="jurusan">
+													<option disabled>--Pilih Jurusan--</option>
+													<option value="RPL">Rakayasa Perangkat Lunak (RPL)</option>
+													<option value="DKV">Desain Komunikasi Visual (DKV)</option>
+													<option value="PS">Perbankan Syariah (PS)</option>
+													<option value="JB">Jasa Boga (JB)</option>
+													<option value="TPHP">Teknologi Pengolahan Bahan Pangan (TPHP)</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<div class="form-group{{ $errors->has('nis') ? ' has-error' : '' }}">
+									<li><h5>No Telepon</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+										<input type="text" name="no_hp" class="single-input" value="{{old('no_hp')}}" placeholder="No Telp" onfocus="this.placeholder = ''" onblur="this.placeholder = 'No Telp'" required>
+											@if($errors->has('no_hp'))
+												<span class="help-block">
+													<strong>{{ $errors->first('no_hp') }}</strong>
+												</span>
+											@endif
+										</div>
+									</li>
+									</div>
+									<li><h6><div class="confirm-checkbox"><input type="checkbox" id="confirm-checkbox" style="width: 10px; margin: 6px; float: left;">
+											<label for="confirm-checkbox"></label></div>Saya menyetujui <a href="#">Syarat dan Ketentuan</a> yang berlaku</h6></li>
+									<li><input type="submit" class="btn btn-success"></li>
+								</ul>								
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="single-price no-padding">
+								<ul class="lists">	
+									<li><h5>Email Anda</h5><input type="text" name="" class="form-control" value="{{ Auth::user()->email }}" disabled></li>
+									<li><h5>Username Anda</h5><input type="text" name="" value="{{ Auth::user()->username}}" class="form-control" disabled></li>
+									<li><h5>Foto</h5>
+									@if(Auth::user()->gambar)
+										<img src="{{url('assets/images/user', $Auth::user()->gambar )}}" alt="image" style="width: 150px;">
+									@else
+										<img src="{{url('assets/images/user/default.png')}}" style="width: 150px;">
+									@endif
+									<input type="file" name="" class="form-control">
+									</li>
+									<br><br>
+									<li><div class="submit-right">
+										<h4>Anda Daftar Sebagai</h4><p></p><button disabled class="primary-btn header-btn">{{ Auth::user()->level }}</button></a>
+									</div></li>
+									<li><input type="hidden" name="siswa" value="{{ Auth::user()->level }}" class="form-control"></li>
+								</ul>
+								<!-- <div class="price-bottom">
+									<div class="price-wrap d-flex flex-row justify-content-center">
+										<span class="price">$</span><h1> 39 </h1><span class="time">Per <br> Month</span>
+									</div>
+									<a href="#" class="primary-btn header-btn">Get Started</a>
+								</div> -->
+								
+							</div>
+						</div>
+						
+						<!-- <div class="col-lg-4">
+							<div class="single-price no-padding">
+								<div class="price-top">
+									<h4>Real Ultimate</h4>
+								</div>
+								<ul class="lists">
+									<li>Unlimited Space</li>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles</li>
+									<li>Customer Service</li>
+								</ul>
+								<div class="price-bottom">
+									<div class="price-wrap d-flex flex-row justify-content-center">
+										<span class="price">$</span><h1> 99 </h1><span class="time">Per <br> Month</span>
+									</div>
+									<a href="#" class="primary-btn header-btn">Get Started</a>
+								</div>
+							</div>				
+						</div> -->				
+					</div>
+					</form>	
+				</div>	
+			</section>
+			@else
+
+			<section class="price-area section-gap" id="price">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+							<div class="title text-center">
+								<h1 class="mb-10">Isi Data Diri Tempat Anda</h1>
+								<p>isi secara lengkap dan mulailah membantu siswa mencapai kesuksesan mereka!</p>
+							</div>
+						</div>
+					</div>			
+					<form method="POST" action="{{ route('data.store') }}" enctype="multipart/form-data" class="form-horizontal">
+					{{ csrf_field() }}	
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="single-price no-padding">
+								<ul class="lists">
+									<div class="form-group{{ $errors->has('nis') ? ' has-error' : '' }}">
+									<li><h5>Nama Perusahaan</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-address-card-o" aria-hidden="true"></i></div>
+										<input type="text" name="nama_dudi" class="single-input" placeholder="Nama Perusahaan/Tempat DU/DI" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nama Perusahaan/Tempat DU/DI'" required>
+											@if($errors->has('nis'))
+												<span class="help-block">
+													<strong>{{ $errors->first('nis') }}</strong>
+												</span>
+											@endif
+										</div>
+									</li>
+									</div>
+									
+									<li><h5>Alamat</h5>
+										<div class="input-group-icon mt-10">
+											<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><textarea name="alamat" class="single-input" placeholder="Alamat Tempat DU/DI" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Alamat Tempat DU/DI'" required></textarea>
+										</div>
+									</li>
+									<li><h5>Deskripsi</h5>
+										<div class="input-group-icon mt-10">
+											<div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div><textarea name="deskripsi" class="single-input" placeholder="Deskripsi" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Deskripsi'" required></textarea>
+										</div>
+									</li>
+									<li><h5>Situs WEB</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-user" aria-hidden="true"></i></div>
+										<input type="text" name="situs_web" class="single-input" placeholder="Situs WEB" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Situs WEB'" required>
+									</div>
+									</li>
+									<li><h5>Jurusan</h5>	
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+										<div class="form-select" id="default-select"">
+											<select name="jurusan">
+													<option disabled>--Pilih Jurusan--</option>
+													<option value="RPL">Rakayasa Perangkat Lunak (RPL)</option>
+													<option value="DKV">Desain Komunikasi Visual (DKV)</option>
+													<option value="PS">Perbankan Syariah (PS)</option>
+													<option value="JB">Jasa Boga (JB)</option>
+													<option value="TPHP">Teknologi Pengolahan Bahan Pangan (TPHP)</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<div class="form-group{{ $errors->has('nis') ? ' has-error' : '' }}">
+									<li><h5>No Telepon</h5>
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-phone-square" aria-hidden="true"></i></div>
+										<input type="text" name="no_telp" class="single-input" value="{{old('no_hp')}}" placeholder="No Telp" onfocus="this.placeholder = ''" onblur="this.placeholder = 'No Telp'" required>
+											@if($errors->has('no_hp'))
+												<span class="help-block">
+													<strong>{{ $errors->first('no_hp') }}</strong>
+												</span>
+											@endif
+										</div>
+									</li>
+									</div>
+									<li><h6><div class="confirm-checkbox"><input type="checkbox" id="confirm-checkbox" style="width: 10px; margin: 6px; float: left;">
+											<label for="confirm-checkbox"></label></div>Saya menyetujui <a href="#">Syarat dan Ketentuan</a> yang berlaku</h6></li>
+									<li><input type="submit" class="btn btn-success"></li>
+								</ul>								
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="single-price no-padding">
+								<ul class="lists">	
+									<li><h5>Email Anda</h5><input type="text" name="" class="form-control" value="{{ Auth::user()->email }}" disabled></li>
+									<li><h5>Username Anda</h5><input type="text" name="" value="{{ Auth::user()->username}}" class="form-control" disabled></li>
+									<li><h5>Foto</h5>
+									@if(Auth::user()->gambar)
+										<img src="{{url('assets/images/user', $Auth::user()->gambar )}}" id="showlogo" alt="image" style="width: 150px;">
+									@else
+										<img src="{{url('assets/images/user/default.png')}}" id="showlogo" style="width: 150px;">
+									@endif
+									<input type="file" id="inputlogo" name="logo" class="form-control">
+									</li>
+									<li><h5>Status</h5>	
+									<div class="input-group-icon mt-10">
+										<div class="icon"><i class="fa fa-graduation-cap" aria-hidden="true"></i></div>
+										<div class="form-select" id="default-select"">
+											<select name="status">
+													<option disabled>--Pilih Status--</option>
+													<option value="Dicari">Dicari</option>
+													<option value="Sudah Ada">Sudah Ada</option>
+												</select>
+											</div>
+										</div>
+									</li>
+									<br><br>
+									<li><div class="submit-right">
+										<h4>Anda Daftar Sebagai</h4><p></p><button disabled class="primary-btn header-btn">{{ Auth::user()->level }}</button></a>
+									</div></li>
+									<li><input type="hidden" name="dudi" value="{{ Auth::user()->level }}"></li>
+								</ul>
+								<!-- <div class="price-bottom">
+									<div class="price-wrap d-flex flex-row justify-content-center">
+										<span class="price">$</span><h1> 39 </h1><span class="time">Per <br> Month</span>
+									</div>
+									<a href="#" class="primary-btn header-btn">Get Started</a>
+								</div> -->
+								
+							</div>
+						</div>
+						
+						<!-- <div class="col-lg-4">
+							<div class="single-price no-padding">
+								<div class="price-top">
+									<h4>Real Ultimate</h4>
+								</div>
+								<ul class="lists">
+									<li>Unlimited Space</li>
+									<li>Secure Online Transfer</li>
+									<li>Unlimited Styles</li>
+									<li>Customer Service</li>
+								</ul>
+								<div class="price-bottom">
+									<div class="price-wrap d-flex flex-row justify-content-center">
+										<span class="price">$</span><h1> 99 </h1><span class="time">Per <br> Month</span>
+									</div>
+									<a href="#" class="primary-btn header-btn">Get Started</a>
+								</div>
+							</div>				
+						</div> -->				
+					</div>
+					</form>	
+				</div>	
+			</section>
+			@endif
+			<!-- End price Area -->		
+
+			<!-- Start feature Area -->
+			<section class="feature-area">
+				<div class="container-fluid">
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src="img/pages/f1.jpg" alt="">
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h6 class="text-uppercase text-white">Basic & Common Repairs</h6>
+							<h1>Who we are</h1>
+							<p>
+								Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
+							</p>
+						</div>
+						<div class="col-lg-3 feat-img no-padding">
+							<img class="img-fluid" src="img/pages/f2.jpg" alt="">							
+						</div>
+						<div class="col-lg-3 no-padding feat-txt">
+							<h6 class="text-uppercase text-white">Basic & Common Repairs</h6>
+							<h1>What we do</h1>
+							<p>
+								Computer users and programmers have become so accustomed to using Windows, even for the changing capabilities and the appearances of the graphical.
+							</p>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End feature Area -->
+
+			<!-- Start submit Area -->
+			<section class="submit-area section-gap">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="submit-left">
+								<h4>Submit Your Resume Today</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+								</p>
+								<a href="#" class="primary-btn header-btn">Submit Your CV</a>	
+							</div>
+						</div>
+						<div class="col-lg-6 ">
+							<div class="submit-right">
+								<h4>Submit a New Job Now!</h4>
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+								</p>
+								<a href="#" class="primary-btn header-btn">Post a Job</a>		
+							</div>			
+						</div>
+
+					</div>
+				</div>	
+			</section>
+			<!-- End submit Area -->
+@endsection
